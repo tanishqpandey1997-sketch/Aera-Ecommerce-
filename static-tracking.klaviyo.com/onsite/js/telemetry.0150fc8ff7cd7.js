@@ -471,7 +471,7 @@
                             events: t,
                             companyId: n,
                             sample: r = 1
-                        }) => Math.random() > r ? Promise.resolve(null) : (0, O.Z)(`https://a.klaviyo.com/onsite/track-analytics?company_id=${n}`, {
+                        }) => Math.random() > r ? Promise.resolve(null) : (0, O.Z)(`/a.klaviyo.com/onsite/track-analytics?company_id=${n}`, {
                             method: "POST",
                             mode: "no-cors",
                             body: JSON.stringify((0, T.Y)({

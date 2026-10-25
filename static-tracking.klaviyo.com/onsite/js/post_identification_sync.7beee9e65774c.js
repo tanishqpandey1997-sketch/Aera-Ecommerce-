@@ -180,7 +180,7 @@
                             },
                             relationships: g
                         }
-                    }, (0, l.O)(() => fetch(`https://a.klaviyo.com/client/event-bulk-create/?company_id=${c}`, {
+                    }, (0, l.O)(() => fetch(`/a.klaviyo.com/client/event-bulk-create/?company_id=${c}`, {
                         method: "POST",
                         headers: q(p({
                             "Access-Control-Allow-Headers": "*",

@@ -59,7 +59,7 @@
                         if (!e || 0 === e.length) return {
                             googleImport: ""
                         };
-                        let t = "https://fonts.googleapis.com/css2?";
+                        let t = "/fonts.googleapis.com/css2?";
                         for (let n in e) e.hasOwnProperty(n) && (t += l(e[n]));
                         return {
                             googleImport: u(t += "display=swap")
@@ -1271,7 +1271,7 @@ ${o}`;
                 a = () => (null != r || (r = new Promise((e, t) => {
                     if (window.ShopSDK) return void e(window.ShopSDK);
                     let n = document.getElementById(i);
-                    n || ((n = document.createElement("script")).id = i, n.setAttribute("src", "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js"), n.setAttribute("type", "module"), document.head.appendChild(n)), n.addEventListener("load", () => {
+                    n || ((n = document.createElement("script")).id = i, n.setAttribute("src", "/cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js"), n.setAttribute("type", "module"), document.head.appendChild(n)), n.addEventListener("load", () => {
                         window.ShopSDK ? e(window.ShopSDK) : t(Error("Shop SDK loaded without registering window.ShopSDK"))
                     }, {
                         once: !0

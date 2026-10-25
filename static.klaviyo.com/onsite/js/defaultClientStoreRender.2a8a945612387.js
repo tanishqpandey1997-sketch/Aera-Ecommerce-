@@ -18,7 +18,7 @@
                 i = c(14979);
             let j = async (a, b, c = !1) => {
                     var h, i;
-                    return await (0, f.Y)(), (0, d.A)(`https://a.klaviyo.com/client/subscriptions/?company_id=${a}${c?"&onsite=true":""}`, {
+                    return await (0, f.Y)(), (0, d.A)(`/a.klaviyo.com/client/subscriptions/?company_id=${a}${c?"&onsite=true":""}`, {
                         method: "POST",
                         headers: (h = function(a) {
                             for (var b = 1; b < arguments.length; b++) {
@@ -168,7 +168,7 @@
 
             function n(a, b) {
                 var c, d;
-                return fetch(`https://a.klaviyo.com/client/back-in-stock-subscriptions/?company_id=${a}&revamp=true`, {
+                return fetch(`/a.klaviyo.com/client/back-in-stock-subscriptions/?company_id=${a}&revamp=true`, {
                     method: "POST",
                     headers: (c = j({
                         "Access-Control-Allow-Headers": "*",
@@ -310,7 +310,7 @@
                         Object.defineProperty(c, a, Object.getOwnPropertyDescriptor(d, a))
                     }), c)))
                 };
-                return (0, i.A)(`https://a.klaviyo.com/ajax/${a}/generate_unique_id`, g).then(a => {
+                return (0, i.A)(`/a.klaviyo.com/ajax/${a}/generate_unique_id`, g).then(a => {
                     if (a.status >= 500) throw Error(`Error sending request: ${a.url}`);
                     return a
                 }).then(a => a.json()).then(a => (0, h.P)(a))
@@ -388,7 +388,7 @@
                             company_id: a,
                             sending_number: b
                         });
-                        return `https://a.klaviyo.com/ajax/rcs/service-id?${c.toString()}`
+                        return `/a.klaviyo.com/ajax/rcs/service-id?${c.toString()}`
                     })(w), {
                         method: "GET",
                         headers: {
@@ -891,7 +891,7 @@
                     try {
                         if (!document.getElementById(n)) {
                             let a = document.createElement("script");
-                            a.setAttribute("id", n), a.async = !0, a.src = "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.lead-capture.esm.js", a.type = "module";
+                            a.setAttribute("id", n), a.async = !0, a.src = "/cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.lead-capture.esm.js", a.type = "module";
                             let b = document.getElementsByTagName("script")[0] || document.head.childNodes[0];
                             ((null == b ? void 0 : b.parentNode) || document.head).insertBefore(a, b)
                         }
@@ -1353,7 +1353,7 @@
                 I = c(57736),
                 J = c(46267),
                 K = c(15663);
-            let L = "https://a.klaviyo.com/api/onsite/coupon-code",
+            let L = "/a.klaviyo.com/api/onsite/coupon-code",
                 M = async a => {
                     let b, {
                             companyId: c

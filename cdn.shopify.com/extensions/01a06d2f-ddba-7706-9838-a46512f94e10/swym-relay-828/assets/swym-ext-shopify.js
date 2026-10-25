@@ -632,7 +632,7 @@ window._swat ? SwymUtils.log("Swym already loaded") : function() {
             else {
                 var d = document.createElement("script");
                 d.type = "module";
-                d.src = "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js";
+                d.src = "/cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js";
                 d.setAttribute("data-swym-shop-sdk", "");
                 d.addEventListener("load", a);
                 d.addEventListener("error",

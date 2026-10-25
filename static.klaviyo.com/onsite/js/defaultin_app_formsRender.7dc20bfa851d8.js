@@ -71,7 +71,7 @@
                 if (!t) return {
                     status: "empty"
                 };
-                let u = new URL("https://a.klaviyo.com/api/profiles/");
+                let u = new URL("/a.klaviyo.com/api/profiles/");
                 u.searchParams.set("filter", t);
                 try {
                     e = await fetch(u.toString(), {

@@ -15,7 +15,7 @@
                     event_details: o
                 }]
             };
-            await fetch(`https://a.klaviyo.com/onsite/track-analytics?company_id=${e}`, {
+            await fetch(`/a.klaviyo.com/onsite/track-analytics?company_id=${e}`, {
                 headers: {
                     accept: "application/json",
                     "content-type": "application/json"

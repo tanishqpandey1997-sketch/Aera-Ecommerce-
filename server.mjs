@@ -39,6 +39,9 @@ function rewriteContent(content) {
     .replaceAll('https://tillysveaas.co.uk/', '/')
     .replaceAll('http://tillysveaas.co.uk/', '/')
     .replaceAll('//tillysveaas.co.uk/', '/')
+    .replaceAll('https://tillysveaas.co.uk', '/')
+    .replaceAll('http://tillysveaas.co.uk', '/')
+    .replaceAll('//tillysveaas.co.uk', '/')
     .replaceAll('https://cdn.shopify.com/', '/cdn.shopify.com/')
     .replaceAll('http://cdn.shopify.com/', '/cdn.shopify.com/')
     .replaceAll('//cdn.shopify.com/', '/cdn.shopify.com/')
@@ -59,13 +62,15 @@ function rewriteContent(content) {
 }
 
 function findFile(cleanPath) {
+  const normPath = cleanPath.replace(/^tillysveaas\.co\.uk\//, '');
+
   const candidates = [
     cleanPath,
-    path.join('tillysveaas.co.uk', cleanPath),
+    normPath,
     cleanPath + '.html',
-    path.join('tillysveaas.co.uk', cleanPath + '.html'),
+    normPath + '.html',
     path.join(cleanPath, 'index.html'),
-    path.join('tillysveaas.co.uk', cleanPath, 'index.html'),
+    path.join(normPath, 'index.html'),
   ];
 
   for (const candidate of candidates) {
@@ -121,7 +126,6 @@ async function main() {
     if (req.method === 'OPTIONS') {
       res.writeHead(204);
       res.end();
-      return;
     }
 
     try {
@@ -129,13 +133,19 @@ async function main() {
       let reqPath = decodeURIComponent(parsedUrl.pathname);
 
       if (reqPath === '/' || reqPath === '') {
-        reqPath = '/tillysveaas.co.uk/index.html';
+        reqPath = '/index.html';
       }
 
       const cleanPath = reqPath.startsWith('/') ? reqPath.slice(1) : reqPath;
       const filePath = findFile(cleanPath);
 
       if (!filePath) {
+        const notFoundPath = path.join(ROOT_DIR, '404.html');
+        if (fs.existsSync(notFoundPath)) {
+          res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+          res.end(fs.readFileSync(notFoundPath, 'utf-8'));
+          return;
+        }
         res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end(`404 Not Found: ${req.url}`);
         return;

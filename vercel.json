@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/collections/all",
+      "destination": "/collections/shop-all.html"
+    },
+    {
+      "source": "/tillysveaas.co.uk/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}

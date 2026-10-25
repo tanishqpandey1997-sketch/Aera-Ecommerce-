@@ -1,0 +1,12 @@
+{
+  "name": "aera-ecommerce",
+  "version": "1.0.0",
+  "description": "AERA Luxury Jewellery E-commerce Platform",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

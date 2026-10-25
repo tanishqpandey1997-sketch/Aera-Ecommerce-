@@ -346,7 +346,7 @@
                 events: b,
                 companyId: c,
                 sample: f = 1
-            }) => Math.random() <= f ? (0, d.A)(`https://a.klaviyo.com/onsite/track-analytics?company_id=${c}`, {
+            }) => Math.random() <= f ? (0, d.A)(`/a.klaviyo.com/onsite/track-analytics?company_id=${c}`, {
                 method: "POST",
                 mode: "no-cors",
                 body: JSON.stringify((0, e.a)({
@@ -715,7 +715,7 @@
                 anonymousId: h,
                 environment: i
             }) => (0, e.A)({
-                url: `https://a.klaviyo.com/forms/api/v4/groups-targeting?data=${btoa(JSON.stringify((0,d.a)({companyId:a,email:b,id:c,phoneNumber:f,exchangeId:g,anonymousId:h,environment:i})))}`
+                url: `/a.klaviyo.com/forms/api/v4/groups-targeting?data=${btoa(JSON.stringify((0,d.a)({companyId:a,email:b,id:c,phoneNumber:f,exchangeId:g,anonymousId:h,environment:i})))}`
             })
         },
         31975: function(a, b, c) {
@@ -1157,7 +1157,7 @@
             });
             var d = c(88553);
             let e = async () => (0, d.A)({
-                url: "https://a.klaviyo.com/forms/api/v3/geo-ip"
+                url: "/a.klaviyo.com/forms/api/v3/geo-ip"
             });
             var f = c(57458);
             let g = "forms_triggering_fastly_geo_ip",

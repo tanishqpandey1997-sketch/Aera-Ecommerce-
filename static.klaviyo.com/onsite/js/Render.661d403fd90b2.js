@@ -7805,7 +7805,7 @@
                         formViewId: t,
                         profile: n
                     });
-                    return (0, L.W)(() => fetch(`https://a.klaviyo.com/client/form-outcome-views/?company_id=${o}`, {
+                    return (0, L.W)(() => fetch(`/a.klaviyo.com/client/form-outcome-views/?company_id=${o}`, {
                         method: "POST",
                         headers: q({
                             "Access-Control-Allow-Headers": "*",
@@ -9643,7 +9643,7 @@
                 companyId: e,
                 phoneNumber: t,
                 token: n
-            }) => (await (0, W.l)(), (0, eG.Z)(`https://a.klaviyo.com/client/otp-verify?company_id=${e}`, {
+            }) => (await (0, W.l)(), (0, eG.Z)(`/a.klaviyo.com/client/otp-verify?company_id=${e}`, {
                 method: "POST",
                 headers: eX({
                     "Access-Control-Allow-Headers": "*",

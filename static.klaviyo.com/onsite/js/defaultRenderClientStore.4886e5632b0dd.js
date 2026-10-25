@@ -26,7 +26,7 @@
                     return e
                 }).apply(this, arguments)
             }
-            let u = async (e, t, n = !1) => (await (0, i.l)(), (0, o.Z)(`https://a.klaviyo.com/client/subscriptions/?company_id=${e}${n?"&onsite=true":""}`, {
+            let u = async (e, t, n = !1) => (await (0, i.l)(), (0, o.Z)(`/a.klaviyo.com/client/subscriptions/?company_id=${e}${n?"&onsite=true":""}`, {
                     method: "POST",
                     headers: d({
                         "Access-Control-Allow-Headers": "*",
@@ -137,7 +137,7 @@
             }
 
             function m(e, t) {
-                return fetch(`https://a.klaviyo.com/client/back-in-stock-subscriptions/?company_id=${e}&revamp=true`, {
+                return fetch(`/a.klaviyo.com/client/back-in-stock-subscriptions/?company_id=${e}&revamp=true`, {
                     method: "POST",
                     headers: d({
                         "Access-Control-Allow-Headers": "*",
@@ -232,7 +232,7 @@
                         form_id: n
                     })))
                 };
-                return (0, s.Z)(`https://a.klaviyo.com/ajax/${e}/subscribe_unique_id`, r).then(e => {
+                return (0, s.Z)(`/a.klaviyo.com/ajax/${e}/subscribe_unique_id`, r).then(e => {
                     if (e.status >= 500) throw Error(`Error sending request: ${e.url}`);
                     return e
                 }).then(e => e.json()).then(e => (0, l._)(e))
@@ -775,7 +775,7 @@
                     try {
                         if (!document.getElementById(m)) {
                             let e = document.createElement("script");
-                            e.setAttribute("id", m), e.async = !0, e.src = "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.lead-capture.esm.js", e.type = "module";
+                            e.setAttribute("id", m), e.async = !0, e.src = "/cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.lead-capture.esm.js", e.type = "module";
                             let t = document.getElementsByTagName("script")[0] || document.head.childNodes[0];
                             ((null == t ? void 0 : t.parentNode) || document.head).insertBefore(e, t)
                         }
@@ -1136,7 +1136,7 @@
                 M = n(60238),
                 A = n(41760),
                 W = n(15656);
-            let B = "https://a.klaviyo.com/api/onsite/coupon-code",
+            let B = "/a.klaviyo.com/api/onsite/coupon-code",
                 N = async e => {
                     let t, {
                             companyId: n

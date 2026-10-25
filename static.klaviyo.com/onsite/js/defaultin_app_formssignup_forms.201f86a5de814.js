@@ -58,7 +58,7 @@
                         if (!a || 0 === a.length) return {
                             googleImport: ""
                         };
-                        let b = "https://fonts.googleapis.com/css2?";
+                        let b = "/fonts.googleapis.com/css2?";
                         for (let c in a) a.hasOwnProperty(c) && (b += i(a[c]));
                         return {
                             googleImport: h(b += "display=swap")
@@ -1677,7 +1677,7 @@ ${e}`;
                     var c;
                     let d;
                     if (window.ShopSDK) return void a(window.ShopSDK);
-                    let e = null != (c = document.getElementById(f)) ? c : ((d = document.createElement("script")).id = f, d.setAttribute("src", "https://cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js"), d.setAttribute("type", "module"), document.head.appendChild(d), d),
+                    let e = null != (c = document.getElementById(f)) ? c : ((d = document.createElement("script")).id = f, d.setAttribute("src", "/cdn.shopify.com/shopifycloud/shop-js/modules/v2/loader.sdk.esm.js"), d.setAttribute("type", "module"), document.head.appendChild(d), d),
                         g = c => {
                             if (window.ShopSDK) {
                                 e.removeEventListener("load", g), a(window.ShopSDK);

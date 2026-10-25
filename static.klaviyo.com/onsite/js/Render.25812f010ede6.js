@@ -2195,7 +2195,7 @@
                         d = setTimeout(() => c.abort(), 1e4);
                     try {
                         var e, f;
-                        let d, g = await fetch(`https://a.klaviyo.com/client/shop-user/?company_id=${encodeURIComponent(a)}`, {
+                        let d, g = await fetch(`/a.klaviyo.com/client/shop-user/?company_id=${encodeURIComponent(a)}`, {
                             method: "POST",
                             headers: (e = function(a) {
                                 for (var b = 1; b < arguments.length; b++) {
@@ -9484,7 +9484,7 @@
                     });
                     return (0, V.O)(() => {
                         var a, b;
-                        return fetch(`https://a.klaviyo.com/client/form-outcome-views/?company_id=${d}`, {
+                        return fetch(`/a.klaviyo.com/client/form-outcome-views/?company_id=${d}`, {
                             method: "POST",
                             headers: (a = function(a) {
                                 for (var b = 1; b < arguments.length; b++) {
@@ -11614,7 +11614,7 @@
                 companyId: a,
                 phoneNumber: b,
                 token: c
-            }) => (await (0, W.Y)(), (0, a0.A)(`https://a.klaviyo.com/client/otp-verify?company_id=${a}`, {
+            }) => (await (0, W.Y)(), (0, a0.A)(`/a.klaviyo.com/client/otp-verify?company_id=${a}`, {
                 method: "POST",
                 headers: function(a) {
                     for (var b = 1; b < arguments.length; b++) {

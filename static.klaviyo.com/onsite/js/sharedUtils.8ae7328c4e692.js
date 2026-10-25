@@ -288,7 +288,7 @@
                 events: n,
                 companyId: e,
                 sample: i = 1
-            }) => Math.random() <= i ? (0, r.Z)(`https://a.klaviyo.com/onsite/track-analytics?company_id=${e}`, {
+            }) => Math.random() <= i ? (0, r.Z)(`/a.klaviyo.com/onsite/track-analytics?company_id=${e}`, {
                 method: "POST",
                 mode: "no-cors",
                 body: JSON.stringify((0, o.Y)({
@@ -613,7 +613,7 @@
         17818: function(t, n, e) {
             var r = e(93386);
             n.Z = async () => (0, r.Z)({
-                url: "https://a.klaviyo.com/forms/api/v3/geo-ip"
+                url: "/a.klaviyo.com/forms/api/v3/geo-ip"
             })
         },
         74238: function(t, n, e) {

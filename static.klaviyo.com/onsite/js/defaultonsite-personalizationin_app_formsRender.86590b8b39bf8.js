@@ -107,7 +107,7 @@
                 if (!G) return F("no_filter"), {
                     status: "empty"
                 };
-                let H = new URL("https://a.klaviyo.com/api/profiles/");
+                let H = new URL("/a.klaviyo.com/api/profiles/");
                 H.searchParams.set("filter", G);
                 try {
                     C = await fetch(H.toString(), {
