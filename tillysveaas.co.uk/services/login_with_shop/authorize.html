@@ -1,0 +1,13 @@
+<html>
+
+<head>
+    <meta name="message_payload" content="{&quot;type&quot;:&quot;error&quot;,&quot;code&quot;:&quot;api_unavailable&quot;,&quot;message&quot;:&quot;Login with Shop is not available for the current merchant&quot;}">
+    <meta name="target_origin" content="https://shopify.com">
+    <script type="text/javascript">
+        var target_origin = document.querySelector("meta[name=target_origin]").content;
+        var payload = JSON.parse(document.querySelector("meta[name=message_payload]").content);
+        (window.opener || window.top).postMessage(payload, target_origin);
+    </script>
+</head>
+
+</html>

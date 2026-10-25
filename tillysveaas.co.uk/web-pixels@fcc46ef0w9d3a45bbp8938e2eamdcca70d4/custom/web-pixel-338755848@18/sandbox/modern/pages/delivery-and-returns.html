@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Pixels Manager Sandbox</title>
+    <script src="https://tillysveaas.co.uk/cdn/wpm/sfcc46ef0w9d3a45bbp8938e2eamdcca70d4m.js"></script>
+
+    <script type="text/javascript">
+        (function(shopify) {
+            shopify.extend('WebPixel::Render', function(api) {
+                var analytics = api.analytics,
+                    browser = api.browser,
+                    init = api.init;
+                // Replace with your GTM container ID
+                const GTM_ID = 'GTM-WGLK22MS';
+
+                window.dataLayer = window.dataLayer || [];
+
+                let gtmLoaded = false;
+
+                function loadGTM() {
+                    if (gtmLoaded) return;
+                    gtmLoaded = true;
+
+                    (function(w, d, s, l, i) {
+                        w[l] = w[l] || [];
+                        w[l].push({
+                            'gtm.start': new Date().getTime(),
+                            event: 'gtm.js'
+                        });
+
+                        const f = d.getElementsByTagName(s)[0];
+                        const j = d.createElement(s);
+                        const dl = l !== 'dataLayer' ? '&l=' + l : '';
+
+                        j.async = true;
+                        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                        f.parentNode.insertBefore(j, f);
+                    })(window, document, 'script', 'dataLayer', GTM_ID);
+                }
+
+                function toNumber(value) {
+                    const num = Number(value);
+                    return Number.isFinite(num) ? num : 0;
+                }
+
+                function getProperty(properties = []) {
+                    return function(name) {
+                        const item = properties.find(item => item.key === name)
+                        return item ? item.value : ""
+                    }
+                }
+
+                function mapLineItem(lineItem) {
+                    const variant = lineItem ? .variant;
+                    const product = variant ? .product;
+                    const propLookup = getProperty(lineItem.properties)
+
+                    return {
+                        item_id: variant ? .sku || variant ? .id || lineItem ? .id || undefined,
+                        item_name: lineItem ? .title || product ? .title || undefined,
+                        item_brand: product ? .vendor || undefined,
+                        item_variant: variant ? .title || undefined,
+                        item_category: propLookup("_ga_category_level_1"),
+                        item_category2: propLookup("_ga_category_level_2"),
+                        item_category3: propLookup("_ga_category_level_3"),
+                        item_category4: propLookup("_ga_category_level_4"),
+                        item_category5: propLookup("_ga_category_level_5"),
+                        price: toNumber(variant ? .price ? .amount),
+                        quantity: toNumber(lineItem ? .quantity) || 1,
+                    };
+                }
+
+                function getItems(checkout) {
+                    return (checkout ? .lineItems || []).map(mapLineItem);
+                }
+
+                analytics.subscribe('checkout_started', () => {
+                    loadGTM();
+                });
+
+                analytics.subscribe('checkout_completed', (event) => {
+                    loadGTM();
+
+                    const checkout = event.data ? .checkout;
+                    const items = getItems(checkout);
+
+                    window.dataLayer.push({
+                        event: 'test_custom_pixel'
+                    })
+
+                    window.dataLayer.push({
+                        event: 'purchase',
+                        ecommerce: {
+                            transaction_id: checkout ? .order ? .id || checkout ? .token,
+                            currency: checkout ? .currencyCode,
+                            value: toNumber(checkout ? .totalPrice ? .amount),
+                            shipping: toNumber(checkout ? .shippingLine ? .price ? .amount),
+                            tax: toNumber(checkout ? .totalTax),
+                            items,
+                        },
+                    });
+                });
+
+            });
+        })(self.webPixelsManager.createShopifyExtend('338755848', 'custom'));
+    </script>
+
+</head>
+
+<body></body>
+
+</html>

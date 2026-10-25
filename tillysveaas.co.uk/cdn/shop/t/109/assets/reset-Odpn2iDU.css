@@ -1,0 +1,80 @@
+@layer reset {
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box
+    }
+    * {
+        margin: 0;
+        color: var(--color-text-primary)
+    }
+    @media(prefers-reduced-motion:no-preference) {
+        html {
+            interpolate-size: allow-keywords
+        }
+    }
+    .swym-atw-button-container,
+    .swym-button-bar {
+        display: none !important
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        background: #fff
+    }
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block
+    }
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit
+    }
+    button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        margin: 0;
+        border: none;
+        background-color: unset;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent
+    }
+    a {
+        text-decoration: none
+    }
+    button:disabled {
+        cursor: not-allowed
+    }
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word
+    }
+    p {
+        text-wrap: pretty
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance
+    }
+    #root {
+        isolation: isolate
+    }
+    body.overflow-hidden {
+        overflow: hidden
+    }
+}

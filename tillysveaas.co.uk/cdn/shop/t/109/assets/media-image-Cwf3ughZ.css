@@ -1,0 +1,20 @@
+media-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+media-image .media-image--fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+media-image .media-image--responsive {
+    display: block;
+    width: 100%;
+    height: auto
+}
